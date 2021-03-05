@@ -260,9 +260,10 @@
   }
 
   .output-active-cell td {
+    border-color: hsla(115, 98%, 57%, 0.646);
     border-width: 4px;
-    min-width: 48px;
-    line-height: 44px;
+    min-width: 47px;
+    line-height: 43px;
     box-sizing: border-box;
   }
 </style>
