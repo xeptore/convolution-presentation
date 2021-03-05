@@ -1,0 +1,370 @@
+devDependencies:
+  '@snowpack/plugin-dotenv': 2.0.5
+  '@snowpack/plugin-svelte': 3.5.2_svelte@3.35.0
+  '@types/chance': 1.1.1
+  chance: 1.1.7
+  lodash: 4.17.21
+  mathjs: 9.2.0
+  snowpack: 3.0.13
+  svelte: 3.35.0
+  svelte-hmr: 0.12.9_svelte@3.35.0
+lockfileVersion: 5.2
+packages:
+  /@snowpack/plugin-dotenv/2.0.5:
+    dependencies:
+      dotenv: 8.2.0
+      dotenv-expand: 5.1.0
+    dev: true
+    resolution:
+      integrity: sha512-y54lwYRDpTfDTU3uopHLND0DKIjjyWiYxhvOPfZvC4OpOd7UIRwMdSOd5XLZJPEBJ4BD38lDLiXh+ODfNDqhnQ==
+  /@snowpack/plugin-svelte/3.5.2_svelte@3.35.0:
+    dependencies:
+      rollup-plugin-svelte: 7.1.0_svelte@3.35.0
+      svelte: 3.35.0
+      svelte-hmr: 0.12.9_svelte@3.35.0
+      svelte-preprocess: 4.6.9_svelte@3.35.0
+    dev: true
+    peerDependencies:
+      svelte: ^3.21.0
+    resolution:
+      integrity: sha512-i7OhkIRNt1uJ/y3qpowlU7icjtSgFPIl/GjMmBxhtwoIqHAnowFLh1Ur5G6S36GCFo65ymClnYfEIM/2x1+wPQ==
+  /@types/chance/1.1.1:
+    dev: true
+    resolution:
+      integrity: sha512-Ze94JMnM33+dj/tQCWxXWaQ80uYmV9HwydTyrbHAiBa91ETQuI+3iF5OFPicDpQx+md+/6rDpTp9I2VKOGOtpw==
+  /@types/node/14.14.31:
+    dev: true
+    resolution:
+      integrity: sha512-vFHy/ezP5qI0rFgJ7aQnjDXwAMrG0KqqIH7tQG5PPv3BWBayOPIQNBjVc/P6hhdZfMx51REc6tfDNXHUio893g==
+  /@types/pug/2.0.4:
+    dev: true
+    resolution:
+      integrity: sha1-h3L80EGOPNLMFxVV1zAHQVBR9LI=
+  /@types/sass/1.16.0:
+    dependencies:
+      '@types/node': 14.14.31
+    dev: true
+    resolution:
+      integrity: sha512-2XZovu4NwcqmtZtsBR5XYLw18T8cBCnU2USFHTnYLLHz9fkhnoEMoDsqShJIOFsFhn5aJHjweiUUdTrDGujegA==
+  /big-integer/1.6.48:
+    dev: true
+    engines:
+      node: '>=0.6'
+    resolution:
+      integrity: sha512-j51egjPa7/i+RdiRuJbPdJ2FIUYYPhvYLjzoYbcMMm62ooO6F94fETG4MTs46zPAF9Brs04OajboA/qTGuz78w==
+  /bplist-parser/0.1.1:
+    dependencies:
+      big-integer: 1.6.48
+    dev: true
+    resolution:
+      integrity: sha1-1g1dzCDLptx+HymbNdPh+V2vuuY=
+  /chance/1.1.7:
+    dev: true
+    resolution:
+      integrity: sha512-bua/2cZEfzS6qPm0vi3JEvGNbriDLcMj9lKxCQOjUcCJRcyjA7umP0zZm6bKWWlBN04vA0L99QGH/CZQawr0eg==
+  /complex.js/2.0.12:
+    dev: true
+    resolution:
+      integrity: sha512-oQX99fwL6LrTVg82gDY1dIWXy6qZRnRL35N+YhIX0N7tSwsa0KFy6IEMHTNuCW4mP7FS7MEqZ/2I/afzYwPldw==
+  /decimal.js/10.2.1:
+    dev: true
+    resolution:
+      integrity: sha512-KaL7+6Fw6i5A2XSnsbhm/6B+NuEA7TZ4vqxnd5tXz9sbKtrN9Srj8ab4vKVdK8YAqZO9P1kg45Y6YLoduPf+kw==
+  /default-browser-id/2.0.0:
+    dependencies:
+      bplist-parser: 0.1.1
+      pify: 2.3.0
+      untildify: 2.1.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-AezONxpx6F8VoXF354YwR+c9vn0=
+  /detect-indent/6.0.0:
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-oSyFlqaTHCItVRGK5RmrmjB+CmaMOW7IaNA/kdxqhoa6d17j/5ce9O9eWXmV/KEdRwqpQA+Vqe8a8Bsybu4YnA==
+  /dotenv-expand/5.1.0:
+    dev: true
+    resolution:
+      integrity: sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==
+  /dotenv/8.2.0:
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
+  /esbuild/0.8.55:
+    dev: true
+    hasBin: true
+    requiresBuild: true
+    resolution:
+      integrity: sha512-mM/s7hjYe5mQR+zAWOM5JVrCtYCke182E9l1Bbs6rG5EDP3b1gZF9sHZka53PD/iNt6OccymVZRWkTtBfcKW4w==
+  /escape-latex/1.2.0:
+    dev: true
+    resolution:
+      integrity: sha512-nV5aVWW1K0wEiUIEdZ4erkGGH8mDxGyxSeqPzRNtWP7ataw+/olFObw7hujFWlVjNsaDFw5VZ5NzVSIqRgfTiw==
+  /estree-walker/0.6.1:
+    dev: true
+    resolution:
+      integrity: sha512-SqmZANLWS0mnatqbSfRP5g8OXZC12Fgg1IwNtLsyHDzJizORW4khDfjPqJZsemPWBB2uqykUah5YpQ6epsqC/w==
+  /fraction.js/4.0.13:
+    dev: true
+    resolution:
+      integrity: sha512-E1fz2Xs9ltlUp+qbiyx9wmt2n9dRzPsS11Jtdb8D2o+cC7wr9xkkKsVKJuBX0ST+LVS+LhLO+SbLJNtfWcJvXA==
+  /fsevents/2.3.2:
+    dev: true
+    engines:
+      node: ^8.16.0 || ^10.6.0 || >=11.0.0
+    optional: true
+    os:
+      - darwin
+    resolution:
+      integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
+  /function-bind/1.1.1:
+    dev: true
+    resolution:
+      integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
+  /has/1.0.3:
+    dependencies:
+      function-bind: 1.1.1
+    dev: true
+    engines:
+      node: '>= 0.4.0'
+    resolution:
+      integrity: sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==
+  /is-core-module/2.2.0:
+    dependencies:
+      has: 1.0.3
+    dev: true
+    resolution:
+      integrity: sha512-XRAfAdyyY5F5cOXn7hYQDqh2Xmii+DEfIcQGxK/uNwMHhIkPWO0g8msXcbzLe+MpGoR951MlqM/2iIlU4vKDdQ==
+  /is-docker/2.1.1:
+    dev: true
+    engines:
+      node: '>=8'
+    hasBin: true
+    resolution:
+      integrity: sha512-ZOoqiXfEwtGknTiuDEy8pN2CfE3TxMHprvNer1mXiqwkOT77Rw3YVrUQ52EqAOU3QAWDQ+bQdx7HJzrv7LS2Hw==
+  /is-wsl/2.2.0:
+    dependencies:
+      is-docker: 2.1.1
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-fKzAra0rGJUUBwGBgNkHZuToZcn+TtXHpeCgmkMJMMYx1sQDYaCSyjJBSCa2nH1DGm7s3n1oBnohoVTBaN7Lww==
+  /javascript-natural-sort/0.7.1:
+    dev: true
+    resolution:
+      integrity: sha1-+eIwPUUH9tdDVac2ZNFED7Wg71k=
+  /lodash/4.17.21:
+    dev: true
+    resolution:
+      integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+  /mathjs/9.2.0:
+    dependencies:
+      complex.js: 2.0.12
+      decimal.js: 10.2.1
+      escape-latex: 1.2.0
+      fraction.js: 4.0.13
+      javascript-natural-sort: 0.7.1
+      seedrandom: 3.0.5
+      tiny-emitter: 2.1.0
+      typed-function: 2.0.0
+    dev: true
+    engines:
+      node: '>= 10'
+    hasBin: true
+    resolution:
+      integrity: sha512-R2fQxaOmyifxgP4+c59dnfLwpKI1KYHdnT5lLwDuHIZvgyGb71M8ay6kTJTEv9rG04pduqvX4tbBUoG5ypTF8A==
+  /min-indent/1.0.1:
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==
+  /open/7.4.2:
+    dependencies:
+      is-docker: 2.1.1
+      is-wsl: 2.2.0
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-MVHddDVweXZF3awtlAS+6pgKLlm/JgxZ90+/NBurBoQctVOOB/zDdVjcyPzQ+0laDGbsWgrRkflI65sQeOgT9Q==
+  /os-homedir/1.0.2:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-/7xJiDNuDoM94MFox+8VISGqf7M=
+  /path-parse/1.0.6:
+    dev: true
+    resolution:
+      integrity: sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+  /pify/2.3.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-7RQaasBDqEnqWISY59yosVMw6Qw=
+  /require-relative/0.8.7:
+    dev: true
+    resolution:
+      integrity: sha1-eZlTn8ngR6N5KPoZb44VY9q9Nt4=
+  /resolve/1.20.0:
+    dependencies:
+      is-core-module: 2.2.0
+      path-parse: 1.0.6
+    dev: true
+    resolution:
+      integrity: sha512-wENBPt4ySzg4ybFQW2TT1zMQucPK95HSh/nq2CFTZVOGut2+pQvSsgtda4d26YrYcr067wjbmzOG8byDPBX63A==
+  /rollup-plugin-svelte/7.1.0_svelte@3.35.0:
+    dependencies:
+      require-relative: 0.8.7
+      rollup-pluginutils: 2.8.2
+      svelte: 3.35.0
+    dev: true
+    engines:
+      node: '>=10'
+    peerDependencies:
+      rollup: '>=2.0.0'
+      svelte: '>=3.5.0'
+    resolution:
+      integrity: sha512-vopCUq3G+25sKjwF5VilIbiY6KCuMNHP1PFvx2Vr3REBNMDllKHFZN2B9jwwC+MqNc3UPKkjXnceLPEjTjXGXg==
+  /rollup-pluginutils/2.8.2:
+    dependencies:
+      estree-walker: 0.6.1
+    dev: true
+    resolution:
+      integrity: sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==
+  /rollup/2.40.0:
+    dev: true
+    engines:
+      node: '>=10.0.0'
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.2
+    resolution:
+      integrity: sha512-WiOGAPbXoHu+TOz6hyYUxIksOwsY/21TRWoO593jgYt8mvYafYqQl+axaA8y1z2HFazNUUrsMSjahV2A6/2R9A==
+  /seedrandom/3.0.5:
+    dev: true
+    resolution:
+      integrity: sha512-8OwmbklUNzwezjGInmZ+2clQmExQPvomqjL7LFqOYqtmuxRgQYqOD3mHaU+MvZn5FLUeVxVfQjwLZW/n/JFuqg==
+  /snowpack/3.0.13:
+    dependencies:
+      default-browser-id: 2.0.0
+      esbuild: 0.8.55
+      open: 7.4.2
+      resolve: 1.20.0
+      rollup: 2.40.0
+    dev: true
+    engines:
+      node: '>=10.19.0'
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.2
+    resolution:
+      integrity: sha512-USTcpfJ68rbuFvUygw+3n9qS1CC/tGsr/JNVc6FNk0ZRfGBE4OmB+Mmk5nWtdxi546GeCr/GvveJenYLen/WpA==
+  /strip-indent/3.0.0:
+    dependencies:
+      min-indent: 1.0.1
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-laJTa3Jb+VQpaC6DseHhF7dXVqHTfJPCRDaEbid/drOhgitgYku/letMUqOXFoWV0zIIUbjpdH2t+tYj4bQMRQ==
+  /svelte-hmr/0.12.9_svelte@3.35.0:
+    dependencies:
+      svelte: 3.35.0
+    dev: true
+    peerDependencies:
+      svelte: '>=3.19.0'
+    resolution:
+      integrity: sha512-SGE7Odznj4dqZtUVIWcoPCvZ9gHImxVIIjrz+O3DDSi0j4OaSLim6MRF4UdhlBKeW3glSRc+tXNSKYvM5x+Dyw==
+  /svelte-preprocess/4.6.9_svelte@3.35.0:
+    dependencies:
+      '@types/pug': 2.0.4
+      '@types/sass': 1.16.0
+      detect-indent: 6.0.0
+      strip-indent: 3.0.0
+      svelte: 3.35.0
+    dev: true
+    engines:
+      node: '>= 9.11.2'
+    peerDependencies:
+      '@babel/core': ^7.10.2
+      coffeescript: ^2.5.1
+      less: ^3.11.3
+      node-sass: '*'
+      postcss: ^7 || ^8
+      postcss-load-config: ^2.1.0 || ^3.0.0
+      pug: ^3.0.0
+      sass: ^1.26.8
+      stylus: ^0.54.7
+      sugarss: ^2.0.0
+      svelte: ^3.23.0
+      typescript: ^3.9.5 || ^4.0.0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      coffeescript:
+        optional: true
+      less:
+        optional: true
+      node-sass:
+        optional: true
+      postcss:
+        optional: true
+      postcss-load-config:
+        optional: true
+      pug:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      typescript:
+        optional: true
+    requiresBuild: true
+    resolution:
+      integrity: sha512-SROWH0rB0DJ+0Ii264cprmNu/NJyZacs5wFD71ya93Cg/oA2lKHgQm4F6j0EWA4ktFMzeuJJm/eX6fka39hEHA==
+  /svelte/3.35.0:
+    dev: true
+    engines:
+      node: '>= 8'
+    resolution:
+      integrity: sha512-gknlZkR2sXheu/X+B7dDImwANVvK1R0QGQLd8CNIfxxGPeXBmePnxfzb6fWwTQRsYQG7lYkZXvpXJvxvpsoB7g==
+  /tiny-emitter/2.1.0:
+    dev: true
+    resolution:
+      integrity: sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
+  /typed-function/2.0.0:
+    dev: true
+    engines:
+      node: '>= 8'
+    resolution:
+      integrity: sha512-Hhy1Iwo/e4AtLZNK10ewVVcP2UEs408DS35ubP825w/YgSBK1KVLwALvvIG4yX75QJrxjCpcWkzkVRB0BwwYlA==
+  /untildify/2.1.0:
+    dependencies:
+      os-homedir: 1.0.2
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-F+soB5h/dpUunASF/DEdBqgmouA=
+specifiers:
+  '@snowpack/plugin-dotenv': ^2.0.5
+  '@snowpack/plugin-svelte': ^3.5.2
+  '@types/chance': ^1.1.1
+  chance: ^1.1.7
+  lodash: ^4.17.21
+  mathjs: ^9.2.0
+  snowpack: ^3.0.13
+  svelte: ^3.35.0
+  svelte-hmr: ^0.12.9
