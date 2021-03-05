@@ -156,7 +156,7 @@
         {#each image as row}
           <tr>
             {#each row as cell}
-               <td style="background-color: rgb({cell},{cell},{cell})">{cell}</td>
+              <td style="background-color: rgb({cell},{cell},{cell})">{cell}</td>
             {/each}
           </tr>
         {/each}
@@ -182,11 +182,7 @@
         {#each outputImage as row}
           <tr>
             {#each row as cell}
-              {#if cell !== null}
-                <td style="background-color: rgb({cell},{cell},{cell})">{cell}</td>
-              {:else}
-                <td style="background-color: rgb(255,255,255)">&nbsp;</td>
-              {/if}
+              <td style="background-color: rgb({cell ?? '255'},{cell ?? '255'},{cell ?? '255'}); --opacity: {cell === null ? '0' : '1'}">{cell ?? '\b'}</td>
             {/each}
           </tr>
         {/each}
@@ -237,7 +233,9 @@
     font-family: Arial, sans-serif;
     font-size: 14px;
     padding: 0;
+    opacity: var(--opacity);
     background-color: var(--bg-color);
+    transition: background-color 600ms ease-in-out 250ms, opacity 600ms ease-in-out 250ms;
   }
 
   .table tr {
@@ -250,13 +248,15 @@
     position: absolute;
     top: 0;
     left: 0;
+    transition: left 350ms linear, top 350ms linear;
   }
 
   .output-active-cell {
-    background-color: rgba(225, 27, 27, 0.375);
+    background-color: rgba(225, 27, 27, 0.0);
     position: absolute;
     top: 0;
     left: 0;
+    transition: left 350ms linear, top 350ms linear;
   }
 
   .output-active-cell td {
