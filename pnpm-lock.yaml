@@ -2,12 +2,13 @@ devDependencies:
   '@snowpack/plugin-dotenv': 2.0.5
   '@snowpack/plugin-svelte': 3.5.2_svelte@3.35.0
   '@types/chance': 1.1.1
+  '@types/mathjs': 6.0.11
   chance: 1.1.7
   lodash: 4.17.21
   mathjs: 9.2.0
   snowpack: 3.0.13
   svelte: 3.35.0
-  svelte-hmr: 0.12.9_svelte@3.35.0
+  svelte-hmr: 0.13.0-1_svelte@3.35.0
 lockfileVersion: 5.2
 packages:
   /@snowpack/plugin-dotenv/2.0.5:
@@ -32,6 +33,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-Ze94JMnM33+dj/tQCWxXWaQ80uYmV9HwydTyrbHAiBa91ETQuI+3iF5OFPicDpQx+md+/6rDpTp9I2VKOGOtpw==
+  /@types/mathjs/6.0.11:
+    dependencies:
+      decimal.js: 10.2.1
+    dev: true
+    resolution:
+      integrity: sha512-q9B8ZreO41L38iTY76bCZEtAqzeRs4mNIOZpZ1sLSlcYgvgfFrnf8y8qfmas0tVWrsODjmQbQJFD6RJJJCqJbQ==
   /@types/node/14.14.31:
     dev: true
     resolution:
@@ -96,12 +103,12 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
-  /esbuild/0.8.55:
+  /esbuild/0.8.56:
     dev: true
     hasBin: true
     requiresBuild: true
     resolution:
-      integrity: sha512-mM/s7hjYe5mQR+zAWOM5JVrCtYCke182E9l1Bbs6rG5EDP3b1gZF9sHZka53PD/iNt6OccymVZRWkTtBfcKW4w==
+      integrity: sha512-PTMdAWK3JI2MNW811znGssGP5GR44tQPr++VQ1rPP0n8Z1cTKbCPD3S/kXPLr3ZZDIwAaVm08fuFym6Rp8l/0A==
   /escape-latex/1.2.0:
     dev: true
     resolution:
@@ -257,7 +264,7 @@ packages:
   /snowpack/3.0.13:
     dependencies:
       default-browser-id: 2.0.0
-      esbuild: 0.8.55
+      esbuild: 0.8.56
       open: 7.4.2
       resolve: 1.20.0
       rollup: 2.40.0
@@ -285,6 +292,14 @@ packages:
       svelte: '>=3.19.0'
     resolution:
       integrity: sha512-SGE7Odznj4dqZtUVIWcoPCvZ9gHImxVIIjrz+O3DDSi0j4OaSLim6MRF4UdhlBKeW3glSRc+tXNSKYvM5x+Dyw==
+  /svelte-hmr/0.13.0-1_svelte@3.35.0:
+    dependencies:
+      svelte: 3.35.0
+    dev: true
+    peerDependencies:
+      svelte: '>=3.19.0'
+    resolution:
+      integrity: sha512-C56ferNlsk7E4PDsjwZT1vwCb7iCk/8wSn/XIGAsN6UD2nzeCaEfsd4666el7+5t2z+Fx06M66Go3mwbHFsOYQ==
   /svelte-preprocess/4.6.9_svelte@3.35.0:
     dependencies:
       '@types/pug': 2.0.4
@@ -362,9 +377,10 @@ specifiers:
   '@snowpack/plugin-dotenv': ^2.0.5
   '@snowpack/plugin-svelte': ^3.5.2
   '@types/chance': ^1.1.1
+  '@types/mathjs': ^6.0.11
   chance: ^1.1.7
   lodash: ^4.17.21
   mathjs: ^9.2.0
   snowpack: ^3.0.13
   svelte: ^3.35.0
-  svelte-hmr: ^0.12.9
+  svelte-hmr: ^0.13.0-1
