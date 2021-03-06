@@ -1,5 +1,5 @@
 <script>
-  import { parse } from "mathjs";
+  import { parse, format } from "mathjs";
 
   export let imageCells = [];
   export let kernelCells = [];
@@ -8,33 +8,57 @@
     return MathJax.tex2svg(tex, { em: 160, ex: 60, display: false });
   }
 
-  let result;
+  let equiation = "";
+  let result = "0.0";
 
   function redrawSVG(expr) {
+    console.debug(expr);
     try {
-      // parse the expression
-      const node = parse(expr);
-
       // export the expression to LaTeX
-      const latex = node
-        ? node.toTex({ parenthesis: "auto", implicit: "show" })
-        : "";
-      console.log("LaTeX expression:", latex);
+      result = format(parse(expr).compile().evaluate());
 
       // display and re-render the expression
       MathJax.typesetClear();
-      result = mj(latex).innerHTML;
+      equiation = mj(
+        parse(expr).toTex({ parenthesis: "auto", implicit: "show" }) +
+          "=" +
+          parseFloat(result).toFixed(2) +
+          "≃" +
+          Math.round(parseFloat(result))
+      ).innerHTML;
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
   }
 
-  $: expr = '(' + imageCells.map((row, i) => row.map((cell, j) => `${cell}*${String(kernelCells[i][j]).substring(0, 4)}`).join('+')).join('+') + ')/(' + kernelCells.map((row) => row.map((c) => c.toFixed(2)).join('+')).join('+') + ')'
+  $: expr =
+    "(" +
+    imageCells
+      .map((row, i) =>
+        row
+          .map(
+            (cell, j) => `${cell}*${kernelCells[i][j]}`
+          )
+          .join("+")
+      )
+      .join("+") +
+    ")/(" +
+    kernelCells.map((row) => row.join("+")).join("+") +
+    ")";
   $: redrawSVG(expr);
 </script>
 
-<pre>
-  <code>
-    {@html result}
-  </code>
-</pre>
+<div class="equiation">
+  {@html equiation}
+</div>
+
+<style>
+  .equiation {
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    overflow-x: scroll;
+    font-size: xx-large;
+  }
+</style>
