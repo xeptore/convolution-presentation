@@ -51,20 +51,20 @@
     ]
   }
 
-  const kernelRadius = 2;
-  const kernel = generateGaussianKernel(kernelRadius);
-  const kernelWidth = 2 * kernelRadius + 1;
-  const kernelHeight = kernelWidth;
-  const IMAGE_VERTICAL_SPACING = kernelRadius * CELL_SIZE;
+  const KERNEL_RADIUS = 2;
+  const kernel = generateGaussianKernel(KERNEL_RADIUS);
+  const KERNEL_WIDTH = 2 * KERNEL_RADIUS + 1;
+  const KERNEL_HEIGHT = KERNEL_WIDTH;
+  const IMAGE_VERTICAL_SPACING = KERNEL_RADIUS * CELL_SIZE;
 
   function getUnderKernelImageCells(activeCellPosition) {
     const output = [];
-    const rowStart = Math.max(0, activeCellPosition.top - parseInt(kernelHeight / 2));
-    const rowEnd = Math.min(imageHeight, parseInt(kernelHeight / 2) + activeCellPosition.top + 1);
+    const rowStart = Math.max(0, activeCellPosition.top - parseInt(KERNEL_HEIGHT / 2));
+    const rowEnd = Math.min(imageHeight, parseInt(KERNEL_HEIGHT / 2) + activeCellPosition.top + 1);
     for (let i = rowStart; i < rowEnd; i++) {
       output.push([]);
-      const widthStart = Math.max(0, activeCellPosition.left - parseInt(kernelWidth / 2));
-      const widthEnd = Math.min(imageWidth, parseInt(kernelWidth / 2) + activeCellPosition.left + 1);
+      const widthStart = Math.max(0, activeCellPosition.left - parseInt(KERNEL_WIDTH / 2));
+      const widthEnd = Math.min(imageWidth, parseInt(KERNEL_WIDTH / 2) + activeCellPosition.left + 1);
       for (let j = widthStart; j < widthEnd; j++) {
         output[output.length - 1].push(image[i][j]);
       }
@@ -75,9 +75,9 @@
 
   function getActiveKernelCells(activeCellPosition) {
     const output = [];
-    for (let i = Math.max(0, parseInt(kernelHeight / 2) - activeCellPosition.top); i < Math.min(kernelHeight, imageHeight + parseInt(kernelHeight / 2) - activeCellPosition.top); i++) {
+    for (let i = Math.max(0, parseInt(KERNEL_HEIGHT / 2) - activeCellPosition.top); i < Math.min(KERNEL_HEIGHT, imageHeight + parseInt(KERNEL_HEIGHT / 2) - activeCellPosition.top); i++) {
       output.push([]);
-      for (let j = Math.max(0, parseInt(kernelWidth / 2) - activeCellPosition.left); j < Math.min(kernelWidth, imageWidth + parseInt(kernelWidth / 2) - activeCellPosition.left) ; j++) {
+      for (let j = Math.max(0, parseInt(KERNEL_WIDTH / 2) - activeCellPosition.left); j < Math.min(KERNEL_WIDTH, imageWidth + parseInt(KERNEL_WIDTH / 2) - activeCellPosition.left) ; j++) {
         output[output.length - 1].push(kernel[i][j]);
       }
     }
@@ -139,16 +139,18 @@
   });
 
   $: kernelPosition = {
-      left: outputImageActiveCellPosition.left - parseInt(kernelWidth / 2, 10),
+      left: outputImageActiveCellPosition.left - parseInt(KERNEL_WIDTH / 2, 10),
       top: outputImageActiveCellPosition.top,
     };
+  $: kernelView = kernel.map((row) => row.map((cell) => cell.toFixed(2)));
   $: underKernelImageCells = getUnderKernelImageCells(outputImageActiveCellPosition);
   $: activeKernelCells = getActiveKernelCells(outputImageActiveCellPosition);
+  $: activeKernelCellsView = activeKernelCells.map(row => row.map(c => c.toFixed(2)));
   $: calculateOutputActiveCell(outputImageActiveCellPosition);
 </script>
 
+<Q imageCells="{underKernelImageCells}" kernelCells="{activeKernelCellsView}" />
 
-<Q imageCells="{underKernelImageCells}" kernelCells="{activeKernelCells}" />
 <div class="App">
   <div class="image input-image" style="--vertical-spacing: {IMAGE_VERTICAL_SPACING}px;">
     <table class="table image" style="--cell-width: {CELL_SIZE}px; --cell-height: {CELL_SIZE}px;">
@@ -156,19 +158,19 @@
         {#each image as row}
           <tr>
             {#each row as cell}
-              <td style="background-color: rgb({cell},{cell},{cell})">{cell}</td>
+              <td style="background-color: rgb({cell},{cell},{cell}); color: {cell < 128 ? 'white' : 'black'}">{cell}</td>
             {/each}
           </tr>
         {/each}
       </tbody>
     </table>
 
-    <table class="table kernel" style="left: {kernelPosition.left * CELL_SIZE}px; top: {kernelPosition.top * CELL_SIZE}px; --cell-width: {CELL_SIZE}px; --cell-height: {CELL_SIZE}px">
+    <table class="table kernel moving" style="left: {kernelPosition.left * CELL_SIZE}px; top: {kernelPosition.top * CELL_SIZE}px; --cell-width: {CELL_SIZE}px; --cell-height: {CELL_SIZE}px">
       <tbody>
         {#each kernel as row}
           <tr>
-            {#each row as cell}
-               <td>{String(cell).substring(0, 4)}</td>
+            {#each row as _}
+               <td>&nbsp;</td>
             {/each}
           </tr>
         {/each}
@@ -182,7 +184,7 @@
         {#each outputImage as row}
           <tr>
             {#each row as cell}
-              <td style="background-color: rgb({cell ?? '255'},{cell ?? '255'},{cell ?? '255'}); --opacity: {cell === null ? '0' : '1'}">{cell ?? '\b'}</td>
+              <td style="background-color: rgb({cell ?? '255'},{cell ?? '255'},{cell ?? '255'}); color: {cell < 128 ? 'white' : 'black'}; --opacity: {cell === null ? '0' : '1'}">{cell ?? '\b'}</td>
             {/each}
           </tr>
         {/each}
@@ -197,6 +199,18 @@
       </tbody>
     </table>
   </div>
+
+  <table class="table kernel" style="left: {kernelPosition.left * CELL_SIZE}px; top: {kernelPosition.top * CELL_SIZE}px; --cell-width: {CELL_SIZE}px; --cell-height: {CELL_SIZE}px">
+    <tbody>
+      {#each kernelView as row}
+        <tr>
+          {#each row as cell}
+            <td>{cell}</td>
+          {/each}
+        </tr>
+      {/each}
+    </tbody>
+  </table>
 </div>
 
 <style>
@@ -222,14 +236,15 @@
   .table {
     border-collapse: collapse;
     table-layout: fixed;
-    border-spacing: 0;
-    line-height: calc(var(--cell-height) - 1px);
+    border-spacing: 0 0;
   }
   .table td {
     border-color: black;
     border-style: solid;
-    min-width: calc(var(--cell-width) - 1px);
+    min-width: var(--cell-width);
+    height: var(--cell-height);
     border-width: 1px;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
     font-size: 14px;
     padding: 0;
@@ -244,11 +259,20 @@
   }
 
   .kernel {
-    background-color: rgba(0, 0, 0, 0.375);
+    border: 4px solid hsla(115, 98%, 57%, 0.646);
+  }
+  .kernel.moving {
     position: absolute;
     top: 0;
     left: 0;
     transition: left 350ms linear, top 350ms linear;
+  }
+
+  .kernel td {
+    min-width: var(--cell-width);
+    min-height: var(--cell-height);
+    height: var(--cell-height);
+    box-sizing: border-box;
   }
 
   .output-active-cell {
